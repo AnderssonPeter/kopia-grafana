@@ -323,7 +323,7 @@
               }
             ]
           },
-          "unit": "decmbytes"
+          "unit": "bytes"
         },
         "overrides": []
       },
@@ -354,7 +354,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "rate(kopia_content_uploaded_bytes_total{instance=~\"$server:.*\"}[$__rate_interval]) / 1024 / 1024",
+          "expr": "rate(kopia_content_uploaded_bytes_total{instance=~\"$server:.*\"}[$__rate_interval])",
           "hide": false,
           "instant": false,
           "legendFormat": "Uploaded",
@@ -367,7 +367,7 @@
             "uid": "11e2e156-5120-444b-acc4-b91213011aa4"
           },
           "editorMode": "code",
-          "expr": "rate(kopia_content_hashed_bytes_total{instance=~\"$server:.*\"}[$__rate_interval]) / 1024 / 1024",
+          "expr": "rate(kopia_content_hashed_bytes_total{instance=~\"$server:.*\"}[$__rate_interval])",
           "hide": true,
           "instant": false,
           "legendFormat": "Hashed",
@@ -380,7 +380,7 @@
             "uid": "11e2e156-5120-444b-acc4-b91213011aa4"
           },
           "editorMode": "code",
-          "expr": "rate(kopia_content_compression_attempted_bytes_total{instance=~\"$server:.*\"}[$__rate_interval]) / 1024 / 1024",
+          "expr": "rate(kopia_content_compression_attempted_bytes_total{instance=~\"$server:.*\"}[$__rate_interval])",
           "hide": false,
           "instant": false,
           "legendFormat": "Pre compressed",
@@ -393,7 +393,7 @@
             "uid": "11e2e156-5120-444b-acc4-b91213011aa4"
           },
           "editorMode": "code",
-          "expr": "rate(kopia_content_non_compressible_bytes_total{instance=~\"$server:.*\"}[$__rate_interval]) / 1024 / 1024",
+          "expr": "rate(kopia_content_non_compressible_bytes_total{instance=~\"$server:.*\"}[$__rate_interval])",
           "hide": false,
           "instant": false,
           "legendFormat": "Non compressed",
@@ -406,12 +406,25 @@
             "uid": "11e2e156-5120-444b-acc4-b91213011aa4"
           },
           "editorMode": "code",
-          "expr": "rate(kopia_content_compression_savings_bytes_total{instance=~\"$server:.*\"}[$__rate_interval]) / 1024 / 1024",
+          "expr": "rate(kopia_content_compression_savings_bytes_total{instance=~\"$server:.*\"}[$__rate_interval])",
           "hide": false,
           "instant": false,
           "legendFormat": "Compressed",
           "range": true,
           "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "11e2e156-5120-444b-acc4-b91213011aa4"
+          },
+          "editorMode": "code",
+          "expr": "rate(kopia_content_deduplicated_bytes_total{instance=~\"$server:.*\"}[$__rate_interval])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "F"
         }
       ],
       "title": "Uploaded",
@@ -473,7 +486,7 @@
               }
             ]
           },
-          "unit": "decmbytes"
+          "unit": "bytes"
         },
         "overrides": []
       },
@@ -665,6 +678,6 @@
   "timezone": "",
   "title": "Kopia",
   "uid": "e807dca0-220f-4138-b498-da575c8d56be",
-  "version": 12,
+  "version": 13,
   "weekStart": ""
 }

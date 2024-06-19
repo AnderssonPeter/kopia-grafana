@@ -422,7 +422,7 @@
           "expr": "rate(kopia_content_deduplicated_bytes_total{instance=~\"$server:.*\"}[$__rate_interval])",
           "hide": false,
           "instant": false,
-          "legendFormat": "__auto",
+          "legendFormat": "Deduplicated",
           "range": true,
           "refId": "F"
         }
@@ -647,8 +647,8 @@
       {
         "current": {
           "selected": true,
-          "text": "kopia-local",
-          "value": "kopia-local"
+          "text": "kopia-backblaze",
+          "value": "kopia-backblaze"
         },
         "definition": "label_values(kopia_blob_errors_total,instance)",
         "hide": 0,
@@ -671,13 +671,13 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Kopia",
   "uid": "e807dca0-220f-4138-b498-da575c8d56be",
-  "version": 13,
+  "version": 14,
   "weekStart": ""
 }

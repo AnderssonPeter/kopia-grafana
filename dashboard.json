@@ -383,7 +383,7 @@
           "expr": "rate(kopia_content_compression_attempted_bytes_total{instance=~\"$server:.*\"}[$__rate_interval]) / 1024 / 1024",
           "hide": false,
           "instant": false,
-          "legendFormat": "Compressed",
+          "legendFormat": "Pre compressed",
           "range": true,
           "refId": "B"
         },
@@ -399,6 +399,19 @@
           "legendFormat": "Non compressed",
           "range": true,
           "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "11e2e156-5120-444b-acc4-b91213011aa4"
+          },
+          "editorMode": "code",
+          "expr": "rate(kopia_content_compression_savings_bytes_total{instance=~\"$server:.*\"}[$__rate_interval]) / 1024 / 1024",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Compressed",
+          "range": true,
+          "refId": "E"
         }
       ],
       "title": "Uploaded",
@@ -652,6 +665,6 @@
   "timezone": "",
   "title": "Kopia",
   "uid": "e807dca0-220f-4138-b498-da575c8d56be",
-  "version": 11,
+  "version": 12,
   "weekStart": ""
 }

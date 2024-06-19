@@ -1,0 +1,49 @@
+groups:
+- name: Kopia
+  rules:
+    - alert: kopia_cache_store_errors
+      expr: 'sum(rate(kopia_cache_store_errors_total{}[3m])) by (instance) > 0'
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: Kopia cache store errors detected (instance {{ $labels.instance }})
+        description: "Kopia cache store errors detected {{ $value }}\n  LABELS = {{ $labels }}"
+
+    - alert: kopia_cache_miss_errors
+      expr: 'sum(rate(kopia_cache_miss_errors_total{}[3m])) by (instance) > 0'
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: Kopia cache miss errors detected (instance {{ $labels.instance }})
+        description: "Kopia cache miss errors detected {{ $value }}\n  LABELS = {{ $labels }}"
+
+    - alert: kopia_blob_errors
+      expr: 'sum(rate(kopia_blob_errors_total{}[3m])) by (instance) > 0'
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: Kopia blob errors detected (instance {{ $labels.instance }})
+        description: "Kopia blob errors detected {{ $value }}\n  LABELS = {{ $labels }}"
+
+
+    - alert: kopia_content_get_not_found
+      expr: 'sum(rate(kopia_content_get_not_found_count_total{}[3m])) by (instance) > 0'
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: Kopia blob errors detected (instance {{ $labels.instance }})
+        description: "Kopia blob errors detected {{ $value }}\n  LABELS = {{ $labels }}"
+
+    - alert: kopia_no_upload
+      expr: 'rate(kopia_blob_upload_bytes_total{}[24h]) == 0'
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: No upload detected the last 24 hours (instance {{ $labels.instance }})
+        description: "No upload detected the last 24 hours {{ $value }}\n  LABELS = {{ $labels }}"
+

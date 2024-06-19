@@ -627,7 +627,7 @@
         "definition": "label_values(kopia_blob_errors_total,instance)",
         "hide": 0,
         "includeAll": false,
-        "label": "Host: ",
+        "label": "Instance:",
         "multi": false,
         "name": "server",
         "options": [],
@@ -645,13 +645,13 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Kopia",
   "uid": "e807dca0-220f-4138-b498-da575c8d56be",
-  "version": 10,
+  "version": 11,
   "weekStart": ""
 }
